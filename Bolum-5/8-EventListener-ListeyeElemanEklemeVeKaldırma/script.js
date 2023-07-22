@@ -5,18 +5,25 @@ const button = document.querySelector('button');
 // });
 
 //tıklanan elemanın listeden silinmesi
-const liElemanlari = document.querySelectorAll('li');
-liElemanlari.forEach(liElemani => {
-    liElemani.addEventListener('click', e => {
-        // console.log(`${liElemani.textContent} tiklandi`); // e yerine () yazınca böyle erişmiştik
-        // console.log(e);
-        // console.log(e.target);
-        e.target.remove();
-    });
-});
+// const liElemanlari = document.querySelectorAll('li');
+// liElemanlari.forEach(liElemani => {
+//     liElemani.addEventListener('click', e => {
+//         // console.log(`${liElemani.textContent} tiklandi`); // e yerine () yazınca böyle erişmiştik
+//         // console.log(e);
+//         // console.log(e.target);
+//         e.target.remove();
+//     });
+// });
 
 const ul = document.querySelector('ul');
 // ul.remove();
+ul.addEventListener('click', e => {
+    // console.log(e);
+    // console.log(e.target);
+    if (e.target.tagName === 'LI') {
+        e.target.remove();
+    }
+});
 
 //ekle butonuna basınca yeni eleman eklenmesi
 button.addEventListener('click', e => {
