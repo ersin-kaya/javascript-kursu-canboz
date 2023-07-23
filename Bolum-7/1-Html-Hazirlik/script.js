@@ -1,6 +1,7 @@
 const correctAnswers = ['E', 'E', 'E', 'E'];
 
 const form = document.querySelector('.question-form');
+const result = document.querySelector('.result');
 
 form.addEventListener('submit', event => {
     event.preventDefault();
@@ -18,6 +19,10 @@ form.addEventListener('submit', event => {
         }
     });
 
-    console.log(score);
+    // console.log(score);
+    result.classList.remove('d-none');
+    const span = document.querySelector('span');
+    // console.log(span);
+    span.textContent = `%${score}`;
 
 });
