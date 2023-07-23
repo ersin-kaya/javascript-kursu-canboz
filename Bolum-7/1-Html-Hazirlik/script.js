@@ -26,3 +26,23 @@ form.addEventListener('submit', event => {
     span.textContent = `%${score}`;
 
 });
+
+// setTimeout'un özelliği, içerisine yazmış olduğunuz kodlar 1 kez çalışır(belirtilen süre sonunda)
+// setTimeout(() => {
+//     console.log('can');
+// }, 2000);
+
+// setInterval ise kodu belirtilen süreye göre her seferinde çalıştırır
+//ancak bunu durdurmanın yöntemi var. clearInterval diye bir metodumuz daha var ancak bunu kullanabilmemiz için setInterval'i bir değişkene atmamız gerekiyor.
+// setInterval(() => {
+//     console.log('can');
+// }, 1000);
+
+let i = 0;
+const bastir = setInterval(() => {
+    console.log('can');
+    i++;
+    if (i === 4) {
+        clearInterval(bastir);
+    }
+}, 1000);
