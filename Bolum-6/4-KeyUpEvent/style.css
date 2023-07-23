@@ -1,0 +1,17 @@
+body {
+    background-color: #eee;
+}
+
+form {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    max-width: 250px;
+    /*margin auto deyip ardından max width 250px deyince ortalanmış oluyor*/
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+}
