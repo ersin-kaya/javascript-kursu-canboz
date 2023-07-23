@@ -21,9 +21,22 @@ form.addEventListener('submit', event => {
 
     // console.log(score);
     result.classList.remove('d-none');
-    const span = document.querySelector('span');
-    // console.log(span);
-    span.textContent = `%${score}`;
+
+    let puan = 0;
+    const bastir = setInterval(() => {
+        const span = document.querySelector('span');
+        // console.log(span);
+        span.textContent = `%${puan}`;
+
+        if (puan === score) {
+            clearInterval(bastir);
+        } else {
+            puan++;
+        }
+    }, 5);
+
+
+
 
 });
 
@@ -38,11 +51,11 @@ form.addEventListener('submit', event => {
 //     console.log('can');
 // }, 1000);
 
-let i = 0;
-const bastir = setInterval(() => {
-    console.log('can');
-    i++;
-    if (i === 4) {
-        clearInterval(bastir);
-    }
-}, 1000);
+// let i = 0;
+// const bastir = setInterval(() => {
+//     console.log('can');
+//     i++;
+//     if (i === 4) {
+//         clearInterval(bastir);
+//     }
+// }, 1000);
