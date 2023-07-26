@@ -18,3 +18,11 @@ addForm.addEventListener('submit', event => {
         addForm.reset();
     }
 });
+
+listUl.addEventListener('click', event => {
+    // console.log(event.target.classList.contains('delete'));
+    // console.log(event.target.parentElement);
+    if (event.target.classList.contains('delete')) {
+        event.target.parentElement.remove();
+    }
+});
