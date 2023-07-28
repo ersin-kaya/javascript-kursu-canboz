@@ -1,11 +1,13 @@
-const getTodos = () => {
+const getTodos = (callback) => {
     const request = new XMLHttpRequest();
     request.addEventListener('readystatechange', () => {
         // console.log(request, request.readyState);
         if (request.readyState === 4 && request.status === 200) {
-            console.log(request, request.responseText);
+            // console.log(request, request.responseText);
+            callback();
         } else if (request.readyState === 4) {
-            console.log("Başarılı cevap alamadık...")
+            // console.log("Başarılı cevap alamadık...")
+            callback();
         }
     });
 
@@ -13,4 +15,6 @@ const getTodos = () => {
     request.send();
 };
 
-getTodos();
+getTodos(() => {
+    console.log("Can Boz");
+});
