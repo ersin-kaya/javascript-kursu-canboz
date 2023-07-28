@@ -16,9 +16,15 @@ const getTodos = (resource) => {
 };
 
 getTodos('example/can.json')
-    .then(data => {
-        console.log(data);
+    .then(data => { //2. dolayısıyla ilkinde can.jsondan dönen dataya ulaşıyorum
+        console.log("Promise 1", data); //4. karıştırmamak için başına ifade ekleyelim
+        return getTodos('example/cem.json');
+    }).then(data => { //1. burası(yukarısı) neyi ifade ediyor? cem.jsondan dönen new promise'i ifade ediyor //3. return dedikten sonra ikinci then'de artık cem.jsondan dönen json değerine ulaşıyorum
+        console.log("Promise 2", data);
+        return getTodos('example/tolga.json');
+    }).then(data => {
+        console.log("Promise 3", data);
     })
-    .catch((err) => {
+    .catch((err) => { //5. ilk nerede patlarsa catch'e girer, yani bu catch hepsi için çalışacaktır. Örneğin ilkinde patlarsa resolve değilde reject dönerse direkt burada catch'e girer, yani orada then(data) çalışmadı, doğrudan buraya catch'e...
         console.log(err);
     });
