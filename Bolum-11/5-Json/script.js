@@ -2,7 +2,8 @@ const getTodos = (callback) => {
     const request = new XMLHttpRequest();
     request.addEventListener('readystatechange', () => {
         if (request.readyState === 4 && request.status === 200) {
-            callback(undefined, request.responseText); //ilk parametre error, burada hata olmadığı için undefined
+            const data = JSON.parse(request.responseText);
+            callback(undefined, data); //ilk parametre error, burada hata olmadığı için undefined
         } else if (request.readyState === 4) {
             callback('Başarılı cevap alamadık...', undefined); //burada da data undefined
         }
