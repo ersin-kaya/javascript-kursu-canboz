@@ -4,10 +4,10 @@ const getTodos = (callback) => {
         // console.log(request, request.readyState);
         if (request.readyState === 4 && request.status === 200) {
             // console.log(request, request.responseText);
-            callback();
+            callback(undefined, request.responseText); //ilk parametre error, burada hata olmadığı için undefined
         } else if (request.readyState === 4) {
             // console.log("Başarılı cevap alamadık...")
-            callback();
+            callback('Başarılı cevap alamadık...', undefined); //burada da data undefined
         }
     });
 
@@ -15,6 +15,11 @@ const getTodos = (callback) => {
     request.send();
 };
 
-getTodos(() => {
-    console.log("Can Boz");
+getTodos((err, data) => {
+    // console.log(err, data);
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
 });
