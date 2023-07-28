@@ -15,7 +15,10 @@ const getTodos = (callback) => {
     request.send();
 };
 
-getTodos((err, data) => {
+console.log(1);
+console.log(2);
+
+getTodos((err, data) => {   //ASYNC olarak çalıştığı için(HttpRequest), konsola 1,2 yi basacak, sonra baktı beklenecek bir işlem var, 3,4,5 i basacak, sonra buranın işi bitince burayı basacak
     // console.log(err, data);
     if (err) {
         console.log(err);
@@ -23,3 +26,7 @@ getTodos((err, data) => {
         console.log(data);
     }
 });
+
+console.log(3);
+console.log(4);
+console.log(5);
