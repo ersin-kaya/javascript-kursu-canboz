@@ -27,14 +27,21 @@ const getTodos = (resource, callback) => {
 
 const getIt = () => {
     return new Promise((resolve, reject) => {
-        // resolve("Başarılı Data");    //bu açıkken çıktı: başarılı başarılı data //bunu kapatınca çıktı: başarısız başarısız istek // he bu böyle mi kullanılıyor hayır, mdn'de ki örnek kullanıma bakalım
+        resolve("Başarılı Data");
         reject("Başarısız İstek");
     });
 };
 
-getIt().then(
+// getIt().then(
+//     data => {
+//         console.log("Başarılı", data);
+//     }, err => {
+//         console.log("Başarısız", err);
+//     });
+
+getIt().then(   //hata için catch'i kullanıyoruz
     data => {
         console.log("Başarılı", data);
-    }, err => {
+    }).catch(err => {
         console.log("Başarısız", err);
     });
