@@ -16,12 +16,20 @@ class User {
 }
 
 class Admin extends User {
-
+    deleteUser(silinecekUser) {
+        users = users.filter(user => user.username !== silinecekUser.username);
+    }
 }
 
 const can = new User('can', 'can@hotmail.com');
 const cem = new User('cem', 'cem@gmail.com');
 const admin = new Admin('admininiz', 'admin@gmail.com'); //Eğer ben Admin class'ına constructor vermediysem, burada verdiğim parametreler gider onun türediği sınıftaki constructor'a parametre olarak geçer
 
+//admin kişileri silebilsin diyelim, dolayısıyla bu kişileri tutmamız lazım
+let users = [can, cem, admin];
+admin.deleteUser(can);
+
 console.log(can, cem, admin);
 admin.login();
+
+console.log(users);
