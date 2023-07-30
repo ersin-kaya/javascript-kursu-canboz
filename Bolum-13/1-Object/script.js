@@ -26,3 +26,6 @@ const userTwo = {
 
 console.log(userTwo.email, userTwo.username);
 userTwo.login();
+
+
+const userThree = new User('Can', 'can@hotmail.com'); //User diye bir class tanımlayıp, bu şekilde kullanmak istiyoruz
